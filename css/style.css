@@ -170,6 +170,7 @@ li {
 }
 .list-font li a div span.show {
   background: url(../img/show.png) no-repeat;
+  background-size:cover;
 }
 .list-font li a div span.gardent {
   background: url(../img/gardend.png) no-repeat;
