@@ -402,10 +402,12 @@ li {
 .main {
   background: #fff;
 }
+.main .main-nav {
+    background: #ededed;
+}
 .main .main-nav h3.title {
   height: 1.66666667rem;
   line-height: 1.66666667rem;
-  background: #ededed;
   padding-left: 0.625rem;
   font-weight: normal;
   overflow: hidden;
