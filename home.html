@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit"/>
+		<title>葡萄酒有限公司</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximun-scale=1.0,user-scalable=0"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script src="js/jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/style.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		    window.onload = function(){
+		    	var html = document.documentElement;
+		    	var hWidth = html.getBoundingClientRect().width;
+				html.style.fontSize = hWidth/15 + "px";
+		    }
+		</script>
+	</head>
+	<body>
+		<!--轮播图-->
+		<div class="flexslide">
+			<ul class="slider-group clearfixed">
+				<li><img src="img/001.jpg" alt="" /></li>
+				<li><img src="img/002.jpg" alt="" /></li>
+				<li><img src="img/003.jpg" alt="" /></li>		
+			</ul>
+			<p class="slider-dots">
+				<b class="active"></b>
+				<b></b>
+				<b></b>
+			</p>
+		</div>
+		
+		<div class="index">
+			<section>
+				<a class="phone-link" href="tel:020 88888888"><span></span>020 88888888</a>
+			</section>
+			
+			<section class="nav">
+				<section>
+					<ul class="list-font clearfixed">
+						<li>
+							<a href="about.html">
+								<div style="background-color: #f28f70;">
+									<span class="home"></span>
+								</div>
+								<p>关于我们</p>
+							</a>
+						</li>
+						<li>
+							<a href="news.html">
+								<div style="background-color: #f6ba5a;">
+									<span class="news"></span>
+								</div>
+								<p>新闻动态</p>
+							</a>
+						</li>
+						<li>
+							<a href="brand.html">
+								<div style="background-color: #a8d590;">
+									<span class="marketing"></span>
+								</div>
+								<p>品牌营销</p>
+							</a>
+						</li>
+					</ul>
+				</section>
+				
+				<section>
+					<ul class="list-font clearfixed sec">
+						<li>
+							<a href="brand.html">
+								<div style="background-color: #56cebe;">
+									<span class="show"></span>
+								</div>
+								<p>品牌展示</p>
+							</a>
+						</li>
+						<li>
+							<a href="manor.html">
+								<div style="background-color: #f28f70;">
+									<span class="gardent"></span>
+								</div>
+								<p>庄园介绍</p>
+							</a>
+						</li>
+					</ul>
+				</section>
+				
+				<section>
+					<ul class="list-font clearfixed sec">
+						<li>
+							<a href="culture.html">
+								<div style="background-color: #a8d590;">
+									<span class="wine"></span>
+								</div>
+								<p>美酒文化</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div style="    background-color: #f6ba5a;">
+									<span class="contect"></span>
+								</div>
+								<p>联系我们</p>
+							</a>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		
+		
+		<div class="foot-text">服务热线：020 88888888</div>
+		<div class="footer-nav">
+			<a href="#"><span></span></a>
+			<a href="#"><span></span></a>
+			<a href="#"><span></span></a>
+			<a href="home.html"><span></span></a>
+			<div class="inf-btn"><span></span></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//首页轮播图
+var oSlider = document.querySelector(".flexslide");
+var oUl = document.querySelector(".slider-group");
+var aList = document.querySelectorAll(".slider-group li");
+var aBtns = document.querySelectorAll(".slider-dots b");
+var iStart = 0;   //初始坐标
+var iStartScroll = 0; //滚动距离
+var iScroll = 0;  //滚动坐标
+var iNow = 0;
+var oTimer = 0;
+
+oSlider.addEventListener("touchstart",fnStart,false);
+oSlider.addEventListener("touchmove",fnMove,false);
+oSlider.addEventListener("touchend",fnEnd,false);
+auto();
+
+function auto(){
+	oTimer = setInterval(function(){
+		iNow++;
+		iNow = iNow%aBtns.length; 
+		tab();
+	},3000)
+	
+}
+
+
+function fnStart(e){
+	oUl.style.WebkitTransition = oUl.style.transition = "none";
+	iStart = e.changedTouches[0].pageX;
+	iStartScroll = iScroll;
+	clearInterval(oTimer);
+}
+
+function fnMove(e){
+	var iDis = e.changedTouches[0].pageX - iStart;
+	iScroll = iStartScroll + iDis;
+	oUl.style.WebkitTransform = oUl.style.transform = "translateX("+iScroll+"px)";
+}
+
+function fnEnd(){
+	iNow = -iScroll/window.screen.width;
+	iNow = Math.round(iNow);
+	//	判断如果是第一张和第四张不能翻
+	if(iNow<0){
+		iNow = 0 ;
+	}
+	
+	if(iNow>aBtns.length-1){
+		iNow=aBtns.length-1;
+	}
+	tab();
+	
+}
+
+function tab(){
+	iScroll = -iNow * window.screen.width;
+	iStartScroll = -iNow * window.screen.width;
+	for(var i=0;i<aBtns.length;i++){
+		aBtns[i].className = "";
+	}
+	aBtns[iNow].className = "active";
+	oUl.style.WebkitTransition = oUl.style.transition = "0.3s";
+	oUl.style.WebkitTransform = oUl.style.transform = "translateX("+iScroll+"px)";
+}
+	</script>
+</html>
