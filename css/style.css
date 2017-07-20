@@ -158,32 +158,45 @@ li {
   display: inline-block;
   width: 1.25rem;
   height: 1.25rem;
-  -webkit-background-size: cover;
-  background-size: cover;
+  
 }
 .list-font li a div span.home {
   background: url(../img/home.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 .list-font li a div span.news {
   background: url(../img/news.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 .list-font li a div span.marketing {
   background: url(../img/marketing.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 .list-font li a div span.show {
   background: url(../img/show.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 .list-font li a div span.gardent {
   background: url(../img/gardend.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 .list-font li a div span.wine {
   width: 1.41666667rem;
   background: url(../img/wine.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 .list-font li a div span.contect {
   width: 0.70833333rem;
   height: 1.08333333rem;
   background: url(../img/contect.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 .list-font li a p {
   font-size: 0.66666667rem;
